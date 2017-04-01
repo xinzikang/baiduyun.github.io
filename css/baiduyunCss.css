@@ -1,0 +1,586 @@
+
+/*初始化*/
+body,ul,li,h2,h3,p,input{margin: 0;padding: 0;}
+li{list-style: none;}
+input{
+    outline: none;
+    border:none;
+}
+img{
+    outline:none;
+
+}
+/*******************************共有样式******************************************************/
+/*框选样式*/
+#borderBox{
+    position: absolute;
+    border: 1px dashed #000000;
+      display: none;
+}
+/*右击菜单*/
+#menu{
+    width: 80px;
+    display: none;
+    border:1px solid #002B38;
+    box-shadow: 2px 2px 10px #03b2ca;
+    background: white;
+    position: absolute;
+}
+#menu li{
+    font-size: 12px;
+    color: #616161;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 6px;
+    border-bottom:1px solid rgba(42,100,150,0.2);
+}
+#menu li:last-child{
+    border:none;
+}
+/*滚动条样式*/
+#scrollBox{
+    position: absolute;
+    right:0px;
+    top:0px;
+    width: 12px;
+    background: rgba(51,30,1,0.5);
+    min-height:40px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border-radius:6px;
+    display: none;
+}
+/*三角形样式*/
+.triangle{
+    height: 0;
+    width: 0;
+    border-width: 6px;
+    border-style:solid;
+    border-color: #535353 transparent transparent transparent;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix:after{
+    display: block;
+    content: '';
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+.clearfix{
+    zoom: 1;
+}
+a{
+    text-decoration: none;
+    color: #605f5a;
+}
+/*字体图标*/
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../images/icomoon/fonts/icomoon.eot?tbcyjb');
+    src:  url('../images/icomoon/fonts/icomoon.eot?tbcyjb#iefix') format('embedded-opentype'),
+    url('../images/icomoon/fonts/icomoon.ttf?tbcyjb') format('truetype'),
+    url('../images/icomoon/fonts/icomoon.woff?tbcyjb') format('woff'),
+    url('../images/icomoon/fonts/icomoon.svg?tbcyjb#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    color: #636363;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon:hover{
+    color: #3a83f6;
+    background: rgba(223,223,223,0.5);
+}
+
+@font-face {
+    font-family: 'icomoon2';
+    src:  url('../images/icomoon/icomoon/fonts/icomoon.eot?tbcyjb');
+    src:  url('../images/icomoon/icomoon/fonts/icomoon.eot?tbcyjb#iefix') format('embedded-opentype'),
+    url('../images/icomoon/icomoon/fonts/icomoon.ttf?tbcyjb') format('truetype'),
+    url('../images/icomoon/icomoon/fonts/icomoon.woff?tbcyjb') format('woff'),
+    url('../images/icomoon/icomoon/fonts/icomoon.svg?tbcyjb#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.icon2-change:before{
+    display: block;
+    font-family:'icomoon2';
+    content: '\ea52';
+    color: blue;
+    position: absolute;
+    top:-2px;
+    left:-2px;
+}
+.icon2-changeLine:before{
+    display: block;
+    font-family: 'icomoon2';
+    content: '\ea52';
+    color: blue;
+}
+.icon2:before{
+    display: block;
+    font-family:'icomoon2';
+    content: '\ea53';
+    color: blue;
+    position: absolute;
+    top:-2px;
+    left:-2px;
+}
+.icon2 {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon2' !important;
+    speak: none;
+    display: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    color: #636363;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*头部样式*/
+header{
+    width: 1366px;
+    height: 49px;
+    background-color: #252525;
+}
+#logo{
+    height: 49px;
+    width: 148px;
+    background: url("../images/logo.gif") no-repeat;
+}
+#homePage{
+    height: 49px;
+    float: left;
+}
+#homePage li{
+    float: left;
+    height: 49px;
+    color: #ffffff;
+    font-family: '黑体';
+    text-align: center;
+    line-height: 49px;
+    font-size: 16px;
+    width: 90px;
+    border-right: 2px solid #363739;
+}
+#homePage li:last-of-type{
+    border: none;
+}
+#navRight{
+    float: right;
+    height: 49px;
+
+}
+#navRight li{
+    float: left;
+    height: 49px;
+    color: #ffffff;
+    font-family: '黑体';
+    text-align: center;
+    line-height: 49px;
+    font-size: 14px;
+    border-right: 2px solid #363739;
+    padding: 0 8px;
+}
+#navRight li:first-child input{
+    padding-left: 8px;
+    margin-left: 8px;
+    color: #605f5a;
+    border:1px solid #181818;
+    background-color: #323232;
+}
+#navRight li:first-child strong{
+    color: #e85d00;
+}
+#navRight li:first-child span{
+    float: left;
+}
+#navRight li:last-of-type{
+    border: none;
+}
+#navRight li:nth-of-type(3) span{
+    display: inline-block;
+    width: 70px;
+    height: 24px;
+    -webkit-border-radius:;
+    -moz-border-radius:;
+    border-radius:2px;
+    background-color: #ff0208;
+    vertical-align: middle;
+    line-height:24px;
+}
+
+/*侧边栏*/
+#sideBar{
+    width: 208px;
+    height: 610px;
+    background-color: #f0f0f0;
+    border-right: 1px solid #d3d3d3;
+    float: left;
+}
+#sideBar>ul>li{
+    border-bottom: 1px solid #dedfe1;
+    border-top: 1px solid #ffffff;
+    line-height: 42px;
+}
+/*字体图标部分*/
+#sideBar h2{
+    font-size: 18px;
+    line-height: 42px;
+    font-weight:bold;
+    padding-left: 44px;
+}
+.icon-home:before {
+    content: "\e900";
+    padding-right: 6px;
+}
+.icon-share:before {
+    content: "\ea82";
+    padding-right: 6px;
+}
+.icon-bin:before {
+    content: "\e9ac";
+    padding-right: 6px;
+}
+#sideBar>ul>li:last-of-type{
+    border-bottom: none;
+}
+#sideBar>ul>li>ul{
+    display: none;
+}
+#sideBar>ul>li>ul li{
+    height: 42px;
+    line-height:42px;
+    padding-left: 60px;
+}
+.icon-image:before {
+    content: "\e90d";
+    padding-right: 6px;
+}
+.icon-file-pdf:before {
+    content: "\eadf";
+    padding-right: 6px;
+}
+.icon-film:before {
+    content: "\e913";
+    padding-right: 6px;
+}
+.icon-bell:before {
+    content: "\e951";
+    padding-right: 6px;
+}
+.icon-headphones:before {
+    content: "\e910";
+    padding-right: 6px;
+}
+.icon-price-tag:before {
+    content: "\e935";
+    padding-right: 6px;
+}
+#contain{
+    width: 1366px;
+}
+#content{
+    height:610px;
+    width: 1144px;
+    float: left;
+    left:209px;
+}
+#btnBar{
+    height: 50px;
+    width: 1144px;
+    background-color: #f7f7f7;
+    border-bottom:1px solid #d3d3d3;
+}
+#btnBar ul{
+    float: left;
+}
+#btnBar ul>li{
+    float: left;
+    height: 30px;
+    width: 116px;
+    border: 1px solid #8c89b6;
+    border-radius: 2px;
+    margin-left: 6px;
+    margin-top: 10px;
+    line-height:30px;
+    font-size: 14px;
+}
+#btnBar ul>li:hover{
+    color: #ffffff;
+    background-color: #16aeff;
+}
+#btnBar ul>li:first-of-type{
+    margin-left: 28px;
+    position: relative;
+}
+#btnBar ul>li:last-of-type{
+    position: relative;
+}
+#btnBar ul>li p:before{
+    font-family:icomoon2;
+    padding: 0 10px;
+}
+#btnBar ul>li:nth-of-type(1)>p:before{
+    content: "\e961";
+}
+#btnBar ul>li:nth-of-type(2)>p:before{
+    content: "\e92f";
+}
+#btnBar ul>li:nth-of-type(3)>p:before{
+    content: "\e960";
+}
+#btnBar ul>li:nth-of-type(4)>p:before{
+    content: "\e956";
+}
+#btnBar ul>li>div:last-of-type {
+    display: none;
+}
+#btnBarRight {
+    float: right;
+    height: 30px;
+    width:60px;
+    border: 1px solid #8c89b6;
+    border-radius: 2px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+#btnBarRight div{
+    float: left;
+    height: 30px;
+    width: 30px;
+}
+#btnBarRight .lineDiv:before,#btnBarRight .boxDiv:before,#btnBarRight .boxDiv2:before,#btnBarRight .lineDiv2:before{
+    font-family:'icomoon2';
+    font-size: 20px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+#btnBarRight .lineDiv:before{
+    content: '\e92f';
+    color: #c7c7c7;
+}
+#btnBarRight .lineDiv2:before{
+    content: '\e92f';
+    color: #0570d0;
+}
+#btnBarRight .boxDiv:before{
+    content: '\e930';
+    color: #0570d0;
+}
+#btnBarRight .boxDiv2:before{
+    content: '\e930';
+    color: #c7c7c7;
+}
+#textBar>p{
+    height: 30px;
+    line-height: 30px;
+}
+#textBar>p:first-of-type{
+    float: left;
+    padding-left: 20px;
+}
+#textBar>p:last-of-type{
+    float: right;
+    padding-right: 20px;
+}
+#textBar{
+    padding-top: 1px;
+}
+#textBar>ul{
+    background-color: #f7f7f7;
+    height: 42px;
+    width: 1130px;
+    border: 1px solid #d3d3d3;
+    margin: 30px 0 0 10px;
+}
+#textBar>ul>li{
+    height: 42px;
+    line-height: 42px;
+    padding-left: 10px;
+    float: left;
+    border-right: 1px solid #d3d3d3;
+}
+#textBar>ul>li:first-of-type{
+    width: 666px;
+}
+#textBar>ul>li:first-of-type input{
+    margin-right: 4px;
+}
+#textBar>ul>li:nth-of-type(2){
+    width: 182px;
+}
+#textBar>ul>li:last-of-type{
+    border-right:none;
+    width: 250px;
+}
+#textBar>ul>li:last-of-type>a::after{
+    content: '\ea36';
+    font-family:icomoon2;
+    font-size: 12px;
+}
+#textBar>ul>li:last-of-type .textBarChange::after{
+    content: '\ea32';
+    font-family:icomoon2;
+    font-size: 12px;
+}
+#filesBar{
+    height: 480px;
+    padding-top: 4px;
+    position: relative;
+    overflow: hidden;
+}
+#filesBar>ul>li{
+    padding-left: 54px;
+    width: 94px;
+    height: 124px;
+    float: left;
+}
+
+#filesUl{
+    position: relative;
+}
+#filesBar>ul>li>div{
+    box-sizing: border-box;
+    /*border:1px solid #ffffff;*/
+    width: 90px;
+    height: 92px;
+    position: relative;
+    background: url("../images/baiduyun_14.png") no-repeat;
+    background-position: 12px 12px;
+    background-origin: border-box;
+}
+#filesBar>ul>li>div .icon2{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top:0;
+    left:0;
+    /*border:1px solid #000000;*/
+}
+#filesBar>ul>li>p{
+    height: 30px;
+    width: 90px;
+    text-align: center;
+    line-height:30px;
+    overflow: hidden;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/*box排版布局*/
+.boxCover{
+    position: absolute;
+    display: none;
+    margin-left: 54px;
+    width: 94px;
+    height: 124px;
+}
+.boxEmpty{
+    display: block;
+    width: 90px;
+    height: 92px;
+}
+.boxInput{
+    width: 90px;
+    height: 24px;
+    border: 1px solid #a8a8a8;
+    margin-left: -18px;
+    margin-top: 2px;
+    float: left;
+}
+.boxDiv{
+    background-color: #fff;
+    width: 94px;
+    height: 28px;
+}
+.boxCover a{
+    display: inline-block;
+    height: 17px;
+    width: 18px;
+    border-radius: 2px;
+    border: 1px solid #a8a8a8;
+    float: right;
+    margin-top: 4px;
+}
+.boxEnsureFile{
+    margin-right: -4px;
+    background: url("../images/ensure.jpg") no-repeat;
+}
+.boxConcelFile{
+    margin-right: -42px;
+    background: url("../images/consel.jpg") no-repeat;
+}
+/*line排版布局*/
+.lineCover{
+    position: absolute;
+    display: none;
+    width: 500px;
+    height: 51px;
+}
+.lineEmpty{
+    display: inline-block;
+    width: 56px;
+    height: 51px;
+    vertical-align: middle;
+
+}
+.lineInput{
+    width: 90px;
+    height: 24px;
+    border: 1px solid #a8a8a8;
+    margin-top: 2px;
+    float: left;
+}
+.lineDiv{
+    width: 400px;
+    vertical-align: middle;
+    display: inline-block;
+    background-color: transparent;
+}
+.lineCover a{
+    display: inline-block;
+    height: 17px;
+    width: 18px;
+    border-radius: 2px;
+    border: 1px solid #a8a8a8;
+    float: left;
+    margin-top: 4px;
+}
+.lineEnsureFile{
+    margin-left: 4px;
+    background: url("../images/ensure.jpg") no-repeat;
+}
+.lineConcelFile{
+    margin-left: 4px;
+    background: url("../images/consel.jpg") no-repeat;
+}
